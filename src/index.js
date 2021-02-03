@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2021-02-03 17:42:34
+ * @LastEditTime: 2021-02-03 23:07:41
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \xkc-react-blog\src\index.js
+ */
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
