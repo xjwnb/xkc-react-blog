@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-02-03 20:51:32
- * @LastEditTime: 2021-02-03 21:38:23
+ * @LastEditTime: 2021-02-04 16:22:27
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \xkc-react-blog\craco.config.js
@@ -44,5 +44,9 @@ module.exports = {
     alias: {
       "@": path.resolve(__dirname, "src")
     }
+  },
+  // eslint
+  eslint: {
+    enable: false 
   }
 };

@@ -1,18 +1,52 @@
 .app-nav {
   display: flex;
+  /deep/ .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item:hover,
+  .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu:hover,
+  .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item-active,
+  .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu-active,
+  .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item-open,
+  .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu-open,
+  .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item-selected,
+  .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu-selected {
+    border-bottom: 0px !important;
 
-  .app-nav-menu {
-    padding: 0 10px;
-    a {
-      font-size: .9rem;
-      text-decoration: none;
+    &:hover {
+      border-bottom: 0px !important;
+      color: #47ade7 !important;
+    }
+  }
+  /deep/ .ant-menu-horizontal > .ant-menu-item,
+  .ant-menu-horizontal > .ant-menu-submenu {
+    border-bottom: 0px !important;
+  }
+  /deep/ .ant-menu-horizontal {
+    border-bottom: 0px !important;
+  }
+  /deep/ .ant-menu-horizontal > .ant-menu-item-selected a {
+    color: #47ade7 !important;
+  }
+  /deep/ .ant-menu-horizontal > .ant-menu-item-selected a:hover {
+    color: #47ade7 !important;
+  }
+  /deep/ .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item:hover,
+  .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu:hover,
+  .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item-active,
+  .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu-active,
+  .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item-open,
+  .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu-open,
+  .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item-selected,
+  .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu-selected {
+    color: #47ade7 !important;
+  }
+  a {
+    font-size: 0.9rem;
+    text-decoration: none;
+    color: #000000;
+    &:active {
       color: #000000;
-      &:active {
-        color: #000000;
-      }
-      &:hover {
-        color: #47ade7;
-      }
+    }
+    &:hover {
+      color: #47ade7;
     }
   }
 }
