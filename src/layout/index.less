@@ -13,6 +13,7 @@
     z-index: 999;
     .layout-header {
       width: 1450px;
+      // width: 90rem;
       height: 100%;
       margin: 0 auto;
       display: flex;
@@ -72,12 +73,17 @@
 
       .layout-main-content {
         width: 1450px;
+        // width: 90rem;
+        // min-width: 80rem;
         margin: 0 auto;
         display: flex;
         padding-top: 10px;
+        box-sizing: border-box;
         .layout-main-content-left {
+          transition: display .3s;
           flex: 1;
           margin-right: 10px;
+          box-sizing: border-box;
           .userinfo-content {
             position: relative;
             top: 40px;
@@ -87,12 +93,26 @@
         .layout-main-content-center {
           flex: 2;
           margin-right: 10px;
+          box-sizing: border-box;
           // margin-top: 10px;
         }
         .layout-main-content-right {
           flex: 1;
+          box-sizing: border-box;
         }
       }
     }
+  }
+}
+
+@media screen and (max-width: 1120px) {
+  .layout-main-content-left {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .layout-main-content-right {
+    display: none;
   }
 }

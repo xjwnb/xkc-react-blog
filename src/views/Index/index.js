@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-02-03 20:40:48
- * @LastEditTime: 2021-02-15 00:45:59
+ * @LastEditTime: 2021-02-15 23:31:32
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \xkc-react-blog\src\views\Index\index.js
@@ -15,6 +15,7 @@ import { getBlogInfoByPage } from "@/api/blog";
 import { BlogItem } from "./components";
 // antd
 import { Pagination } from 'antd';
+import "./index.less";
 
 function Index(props) {
   // 分页获取的博客信息
@@ -52,7 +53,9 @@ function Index(props) {
         )
       })
     }  
+    <div className="pagination">
     <Pagination defaultCurrent={1} total={props.tabsInfo.blogCount} onChange={onPagChange} />
+    </div>
   </div>)
 }
 

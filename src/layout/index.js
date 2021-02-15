@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-02-03 22:09:07
- * @LastEditTime: 2021-02-15 13:45:58
+ * @LastEditTime: 2021-02-15 23:27:41
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \xkc-react-blog\src\layout\index.js
@@ -51,6 +51,27 @@ function Layout(props) {
     setHotBlogInfo(blogInfoHot);
   }, []);
 
+  useEffect(() => {
+    window.addEventListener("resize", () => {
+      let body = document.documentElement || document.body;
+      // console.dir(typeof body.clientWidth);
+      if (body.clientWidth <= 1450 && body.clientWidth >= 500) {
+        // console.log(body.clientWidth);
+        // let wid = 1450 - body.clientWidth; 
+        // console.log(wid)
+        // let fontsize = body.getAttribute("fontSize");
+        // let fontNum = fontsize.match(/\d+/g)[0];
+        // console.log(fontNum)
+        // console.log(fontsize);
+        // body.setAttribute("fontSize", `${fontNum - wid / 1000}px`);
+        // let layoutHeight = document.querySelector(".layout-header")[0];
+        let layoutMainContent = document.getElementsByClassName("layout-main-content")[0];
+        // console.log(layoutMainContent)
+        layoutMainContent.style.width = `${body.clientWidth - 50}px`;
+      }
+    });
+  }, []);
+
   // 获取用户数据
   const getUserInfoData = () => {
     return new Promise((resolve) => {
@@ -83,14 +104,13 @@ function Layout(props) {
   // 获取热门博客信息
   const getHotBlogInfoData = () => {
     return new Promise((resolve) => {
-      getHotBlogInfo()
-        .then(res => {
-          if (res.code === 200) {
-            resolve(res.data.blogHotInfo);
-          }
-        })
-    })
-  }
+      getHotBlogInfo().then((res) => {
+        if (res.code === 200) {
+          resolve(res.data.blogHotInfo);
+        }
+      });
+    });
+  };
 
   return (
     <div className="layout">
@@ -146,13 +166,21 @@ function Layout(props) {
                       path={route.path}
                       exact
                       render={(routerProps) => {
-                        return <route.component {...routerProps} tabsInfo={tabsInfo} />;
+                        return (
+                          <route.component
+                            {...routerProps}
+                            tabsInfo={tabsInfo}
+                          />
+                        );
                       }}
                     ></Route>
                   );
                 })}
-                <Route path="/blogDetail/:id" exact component={BlogDetail}>
-                </Route>
+                <Route
+                  path="/blogDetail/:id"
+                  exact
+                  component={BlogDetail}
+                ></Route>
               </Switch>
               {/* <Switch>
                     <Route path="/" exact component={Index}>
