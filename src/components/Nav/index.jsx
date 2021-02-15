@@ -1,27 +1,34 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./index.less";
 
 // react-router-dom
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import { BrowserRouter as Router, Link, useLocation } from "react-router-dom";
 // antd
 import { Menu } from "antd";
+// withRouter
+import { withRouter } from "react-router-dom";
 
-function Nav({ nav }) {
+function Nav(props) {
   // 当前索引
   const [currentIndex, setCurrentIndex] = useState("1");
+
   // 点击导航事件
-  const handleClick = (e) => {
-    console.log("click ", e);
-    setCurrentIndex(e.key);
+  const handleMenu = ({ keyPath }) => {
+    props.history.push(keyPath[0]);
   };
   return (
     <div className="app-nav">
       <Router>
-        <Menu onClick={handleClick} selectedKeys={[currentIndex]} mode="horizontal">
-          {nav.map((navigat) => {
+        <Menu
+          defaultSelectedKeys={[props.location.pathname]}
+          mode="horizontal"
+          onClick={handleMenu}
+        >
+          {props.nav.map((navigat) => {
             return (
-              <Menu.Item key={navigat.id}>
-                <Link to={navigat.path}>{navigat.name}</Link>
+              <Menu.Item key={navigat.path}>
+                {/* <Link to={navigat.path}>{navigat.name}</Link> */}
+                {navigat.name}
               </Menu.Item>
             );
           })}
@@ -33,10 +40,6 @@ function Nav({ nav }) {
 
 Nav.displayName = "Nav";
 
-export default Nav;
-{
-  /* <div className="app-nav-menu" key={navigat.id}>
-                <Link to={navigat.path}>{navigat.name}</Link> */
-}
+export default withRouter(Nav);
 
 /* </div> */
