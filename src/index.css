@@ -1,3 +1,4 @@
+html,
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -5,7 +6,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: 100%;
   overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 
 code {
@@ -43,9 +46,8 @@ code {
   background: rgb(137, 206, 191);
 }
 
-
 blockquote {
-  border-left: .25em solid #5fa3f0 !important;
+  border-left: 0.25em solid #5fa3f0 !important;
 }
 /* pre,.hljs {
   background: #1E1E1E !important;
@@ -53,4 +55,27 @@ blockquote {
 /* code {
   font-size: 15px !important;
   font-weight: 700 !important;
+} */
+
+@media screen and (max-width: 1120px) {
+  .layout-top-big-image {
+    height: 300px !important;
+  }
+  .layout-main-content-left {
+    display: none;
+  }
+}
+
+/* @media screen and (max-width: 800px) {
+  .layout-top-big-image {
+    height: 200px !important;
+    background-position: center;
+  }
+  .layout-main-content-right {
+    display: none;
+    background-position: 50% 60%;
+  }
+  .index {
+    width: 100vw !important;
+  }
 } */
