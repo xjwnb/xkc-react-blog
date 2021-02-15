@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-02-14 16:42:41
- * @LastEditTime: 2021-02-14 22:29:09
+ * @LastEditTime: 2021-02-15 13:55:24
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \xkc-react-blog\src\api\blog.js
@@ -22,5 +22,16 @@ export function getBlogInfoByPage(offset = 0) {
 export function getHotBlogInfo() {
   return request({
     url: "/blog/getHotBlogInfo",
+  })
+}
+
+
+// 通过 id 获取博客信息
+export function getBlogInfoById(id) {
+  return request({
+    url: "/blog/getBlogInfoById",
+    params: {
+      id
+    }
   })
 }

@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-02-03 22:09:07
- * @LastEditTime: 2021-02-15 00:35:01
+ * @LastEditTime: 2021-02-15 13:45:58
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \xkc-react-blog\src\layout\index.js
@@ -21,6 +21,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 // views
 import Index from "@/views/Index";
 import Comments from "@/views/Comments";
+import BlogDetail from "@/views/BlogDetail";
 // redux
 import { connect } from "react-redux";
 import { setUserInfo } from "@/store/actions/user";
@@ -150,6 +151,8 @@ function Layout(props) {
                     ></Route>
                   );
                 })}
+                <Route path="/blogDetail/:id" exact component={BlogDetail}>
+                </Route>
               </Switch>
               {/* <Switch>
                     <Route path="/" exact component={Index}>

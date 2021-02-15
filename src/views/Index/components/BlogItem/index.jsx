@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import "./index.less";
 import moment from "moment";
+import { withRouter } from "react-router-dom";
 
 function BlogItem(props) {
   const [blogInfo, setblogInfo] = useState(props.blogInfo);
@@ -13,6 +14,11 @@ function BlogItem(props) {
     }
   }, [props]);
 
+  // 点击跳转事件
+  const blogClickHandle = () => {
+    props.history.push(`/blogDetail/${blogInfo.id}`)
+  }
+
   return (
     <div className="blog-item">
       <div className="blog-item-top">
@@ -20,7 +26,7 @@ function BlogItem(props) {
           <img src={userInfo.avatarUrl} alt="avatar" />
         </div>
         <div className="blog-item-top-info">
-          <div className="blog-item-top-info-title">{blogInfo.title}</div>
+          <div className="blog-item-top-info-title" onClick={blogClickHandle}>{blogInfo.title}</div>
           <div className="blog-item-top-info-time">
             {moment(Date.parse(blogInfo.time)).format("YYYY-MM-DD HH:mm:ss")}
             {
@@ -54,4 +60,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(BlogItem);
+export default connect(mapStateToProps)(withRouter(BlogItem));

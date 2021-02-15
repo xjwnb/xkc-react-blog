@@ -41,3 +41,15 @@ code {
 ::-webkit-scrollbar-corner {
   background: rgb(137, 206, 191);
 }
+
+
+blockquote {
+  border-left: .25em solid #5fa3f0 !important;
+}
+/* pre,.hljs {
+  background: #1E1E1E !important;
+} */
+/* code {
+  font-size: 15px !important;
+  font-weight: 700 !important;
+} */
