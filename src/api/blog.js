@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-02-14 16:42:41
- * @LastEditTime: 2021-02-15 13:55:24
+ * @LastEditTime: 2021-02-17 17:52:40
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \xkc-react-blog\src\api\blog.js
@@ -30,6 +30,26 @@ export function getHotBlogInfo() {
 export function getBlogInfoById(id) {
   return request({
     url: "/blog/getBlogInfoById",
+    params: {
+      id
+    }
+  })
+}
+
+// 通过标签获取博客信息
+export function getBlogsInfoByTag(tag) {
+  return request({
+    url: "/blog/getBlogsInfoByTag",
+    params: {
+      tag
+    }
+  })
+}
+
+// 增加博客访问量
+export function updateBlogVisits(id) {
+  return request({
+    url: "/blog/updateBlogVisits",
     params: {
       id
     }

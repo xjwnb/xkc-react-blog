@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { withRouter, useParams } from "react-router-dom";
-import { getBlogInfoById } from "@/api/blog";
+// 请求
+import { getBlogInfoById, updateBlogVisits } from "@/api/blog";
 import "./index.less";
 import moment from "moment";
 import marked from "marked";
@@ -44,8 +45,13 @@ function BlogDetail(props) {
       hljs.highlightBlock(block);
     }); */
     // hljs.highlightAll(document.querySelector(".blog-detail-info-content"));
+
+    // 增加访问量
+    await updateBlogVisitsData(id);
+
   }, [id]);
 
+  // 根据 id 获得相应博客内容
   const getBlogInfoDataById = (id) => {
     return new Promise((resolve) => {
       getBlogInfoById(id)
@@ -59,6 +65,22 @@ function BlogDetail(props) {
         });
     });
   };
+
+  // 更新访问量
+  const updateBlogVisitsData = (id) => {
+    return new Promise((resolve) => {
+      updateBlogVisits(id)
+        .then(res => {
+          if (res.code === 200) {
+            resolve(res.code);
+          }
+        })
+        .catch(err => {
+          console.log(err);
+        })
+    })
+  }
+
   function createMarkup() {
     // return { __html: blogInfo.htmlContent };
     return { __html: marked(blogInfo.content) };

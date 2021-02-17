@@ -1,15 +1,35 @@
 .tags-detail {
   width: 100%;
-  background-color: #ffffff;
-  padding: 10px;
+  // background-color: #ffffff;
+  // padding: 10px;
   .tags-div {
     display: flex;
     justify-content: space-around;
-    margin: 20px;
-
+    // margin: 20px;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
+    border-radius: 10px;
     .tag-btn-div {
       display: inline-block;
     }
   }
-  
+
+  .tag-selected-result {
+    font-size: 17px;
+    font-weight: 700;
+    text-align: center;
+    margin: 10px 0;
+    /*     font-size: 30px;
+    font-weight: 700; */
+
+    background-image: linear-gradient(
+      to bottom right,
+      rgb(149, 66, 226),
+      rgb(55, 226, 212)
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 }
