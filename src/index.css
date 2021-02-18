@@ -79,3 +79,15 @@ blockquote {
     width: 100vw !important;
   }
 } */
+
+.hljs-center {
+  text-align: center;
+}
+
+.hljs-left {
+  text-align: left;
+}
+
+.hljs-right {
+  text-align: right;
+}

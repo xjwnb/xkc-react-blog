@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-02-03 17:42:34
- * @LastEditTime: 2021-02-15 22:38:49
+ * @LastEditTime: 2021-02-18 14:37:22
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \xkc-react-blog\src\index.js
@@ -20,18 +20,14 @@ import store from "@/store";
 // redux
 import { Provider } from "react-redux";
 
-
-
-
-
 ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <Router>
-        <App />
-      </Router>
-    </Provider>
-  </React.StrictMode>,
+  // <React.StrictMode>
+  <Provider store={store}>
+    <Router>
+      <App />
+    </Router>
+  </Provider>,
+  // </React.StrictMode>
   document.getElementById("root")
 );
 
