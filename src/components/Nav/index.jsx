@@ -18,7 +18,7 @@ function Nav(props) {
   };
   return (
     <div className="app-nav">
-      <Router>
+      <Router basename="/xkcBlog">
         <Menu
           defaultSelectedKeys={[props.location.pathname]}
           mode="horizontal"

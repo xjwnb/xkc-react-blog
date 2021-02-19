@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-02-03 20:40:48
- * @LastEditTime: 2021-02-15 23:31:32
+ * @LastEditTime: 2021-02-19 23:56:36
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \xkc-react-blog\src\views\Index\index.js
@@ -37,7 +37,7 @@ function Index(props) {
 
   // 分页点击事件
   const onPagChange = async (pageNumber) => {
-    console.log(pageNumber);
+    // console.log(pageNumber);
     let blogInfoData = await getBlogInfo(10 * (pageNumber - 1));
     setBlogInfo(blogInfoData);
   }

@@ -16,7 +16,7 @@ function BlogItem(props) {
 
   // 点击跳转事件
   const blogClickHandle = () => {
-    props.history.push(`/blogDetail/${blogInfo.id}`)
+    props.history.push(`/xkcBlog/blogDetail/${blogInfo.id}`)
   }
 
   return (

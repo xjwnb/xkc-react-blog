@@ -5,7 +5,7 @@ import { withRouter } from "react-router-dom";
 function HotBlogItem(props) {
 
   const clickHandle = () => {
-    props.history.push(`/blogDetail/${props.hotBlog.id}`);
+    props.history.push(`/xkcBlog/blogDetail/${props.hotBlog.id}`);
   };
 
   return (

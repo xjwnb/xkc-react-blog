@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-02-03 22:09:07
- * @LastEditTime: 2021-02-15 23:27:41
+ * @LastEditTime: 2021-02-19 23:45:22
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \xkc-react-blog\src\layout\index.js
@@ -177,7 +177,7 @@ function Layout(props) {
                   );
                 })}
                 <Route
-                  path="/blogDetail/:id"
+                  path="/xkcBlog/blogDetail/:id"
                   exact
                   component={BlogDetail}
                 ></Route>
