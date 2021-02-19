@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-02-03 20:38:33
- * @LastEditTime: 2021-02-19 14:43:50
+ * @LastEditTime: 2021-02-19 21:14:23
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \xkc-react-blog\src\const\navigation.js
@@ -30,12 +30,12 @@ const nav = [
     path: "/links",
     component: Links,
   },
-  {
+/*   {
     id: 4,
     name: "留言板",
     path: "/comments",
     component: Comments,
-  },
+  }, */
   {
     id: 5,
     name: "关于",
