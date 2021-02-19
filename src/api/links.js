@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-02-18 16:18:31
- * @LastEditTime: 2021-02-18 16:20:42
+ * @LastEditTime: 2021-02-19 12:51:38
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \xkc-react-blog\src\api\links.js
@@ -16,5 +16,12 @@ export function postLinksInfo(linksInfo) {
     data: {
       linksInfo
     }
+  })
+}
+
+// 获取通过的友链信息
+export function getLinksInfoByPass() {
+  return request({
+    url: "/blog/getLinksInfoByPass",
   })
 }

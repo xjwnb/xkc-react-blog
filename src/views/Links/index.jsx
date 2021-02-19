@@ -1,15 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./index.less";
 // antd
 import { Drawer, Form, Input, Button, message } from "antd";
 // 请求
-import { postLinksInfo } from "@/api/links";
+import { postLinksInfo, getLinksInfoByPass } from "@/api/links";
+// 组件
+import { LinkDiv } from "./components";
 
 export default function Links() {
   // 抽屉是否展示
   const [drawerVisible, setDrawerVisible] = useState(false);
+  // 友链信息
+  const [linksInfo, setlinksInfo] = useState([])
   // form
   const [form] = Form.useForm();
+
+  useEffect(async() => {
+    // 获取友链信息
+    let linkInfo = await getLinksInfoByPassData()
+    setlinksInfo(linkInfo);
+  }, []);
+
   // 开启抽屉
   const showDrawer = () => {
     setDrawerVisible(true);
@@ -39,10 +50,9 @@ export default function Links() {
 
   // 正确提交
   const onFinish = async (values) => {
-    console.log("Success:", values);
     // 提交友链信息
     let successMsg = await postLinksInfoData(values);
-    message.success(successMsg);
+    message.success(`${successMsg}，请等待审核通过！`);
     // 重置表单
     form.resetFields();
   };
@@ -62,13 +72,40 @@ export default function Links() {
     });
   };
 
+  // 获取友链信息（已通过）
+  const getLinksInfoByPassData = () => {
+    return new Promise((resolve, reject) => {
+      getLinksInfoByPass()
+        .then(res => {
+          if (res.code === 200) {
+            resolve(res.data.linksInfo);
+          }
+        })
+        .catch(err => {
+          console.log(err);
+        })
+    })
+  }
+
   // 失败提交
   const onFinishFailed = (errorInfo) => {
     message.warning("提交的内容不符合规范");
   };
   return (
     <div className="links">
-      Links
+      {/* link 友链展示 */}
+      <div className="links-pass-div">
+        {
+          linksInfo.map(link => {
+            return (
+              <div key={link.id} className="links-div">
+                <LinkDiv link={link} />
+              </div>
+            )
+          })
+        }
+      </div>
+      {/* 提交按钮 */}
       <div className="links-submit-btn" onClick={showDrawer}>
         提交链接信息
       </div>
