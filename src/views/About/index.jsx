@@ -54,7 +54,6 @@ export default function About() {
 
   return (
     <div className="about-info">
-      About
       <div
         className="about-info-content markdown-body"
         dangerouslySetInnerHTML={aboutInfo.content && createMarkup()}

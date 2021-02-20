@@ -35,7 +35,7 @@ function TagsDetail(props) {
     if (!tagValue) return;
     // 发送请求
     let blogInfos = await getBlogsInfoDataByTag(tagValue);
-    console.log(blogInfos);
+    // console.log(blogInfos);
     setblogInfo(blogInfos);
     setTagResult(tagValue);
     setblogCount(blogInfos.length);
@@ -104,7 +104,7 @@ function TagsDetail(props) {
   const clickTagHandle = async (tag) => {
     // let blogInfos = await getBlogsInfoDataByTag(tag.name);
     // props.history.push(`/tagsDetail?tag=${tag.name}`)
-    history.push(`/tagsDetail?tag=${tag.name}`);
+    history.push(`/xkcBlog/tagsDetail?tag=${tag.name}`);
     /* setblogInfo(blogInfos);
     setTagResult(tag.name);
     setblogCount(blogInfos.length); */
