@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-02-03 22:09:07
- * @LastEditTime: 2021-02-19 23:45:22
+ * @LastEditTime: 2021-02-21 20:36:38
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \xkc-react-blog\src\layout\index.js
@@ -22,6 +22,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Index from "@/views/Index";
 import Comments from "@/views/Comments";
 import BlogDetail from "@/views/BlogDetail";
+import NotFound from "@/views/NotFound";
 // redux
 import { connect } from "react-redux";
 import { setUserInfo } from "@/store/actions/user";
@@ -57,7 +58,7 @@ function Layout(props) {
       // console.dir(typeof body.clientWidth);
       if (body.clientWidth <= 1450 && body.clientWidth >= 500) {
         // console.log(body.clientWidth);
-        // let wid = 1450 - body.clientWidth; 
+        // let wid = 1450 - body.clientWidth;
         // console.log(wid)
         // let fontsize = body.getAttribute("fontSize");
         // let fontNum = fontsize.match(/\d+/g)[0];
@@ -65,7 +66,9 @@ function Layout(props) {
         // console.log(fontsize);
         // body.setAttribute("fontSize", `${fontNum - wid / 1000}px`);
         // let layoutHeight = document.querySelector(".layout-header")[0];
-        let layoutMainContent = document.getElementsByClassName("layout-main-content")[0];
+        let layoutMainContent = document.getElementsByClassName(
+          "layout-main-content"
+        )[0];
         // console.log(layoutMainContent)
         layoutMainContent.style.width = `${body.clientWidth - 50}px`;
       }
@@ -181,6 +184,9 @@ function Layout(props) {
                   exact
                   component={BlogDetail}
                 ></Route>
+                <Route path="*">
+                  <NotFound />
+                </Route>
               </Switch>
               {/* <Switch>
                     <Route path="/" exact component={Index}>
