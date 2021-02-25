@@ -1,17 +1,18 @@
 /*
  * @Author: your name
  * @Date: 2021-02-03 20:38:33
- * @LastEditTime: 2021-02-19 23:59:13
+ * @LastEditTime: 2021-02-25 22:49:30
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \xkc-react-blog\src\const\navigation.js
  */
-import Index from "@/views/Index";
-import Comments from "@/views/Comments";
-import TagsDetail from "@/views/TagsDetail";
-import About from "@/views/About";
-import Links from "@/views/Links";
-import BlogDetail from "@/views/BlogDetail";
+import { lazy } from "react";
+const Index = lazy(() => import("@/views/Index"));
+// const Comments = lazy(() => import("@/views/Comments"));
+const TagsDetail = lazy(() => import("@/views/TagsDetail"));
+const About = lazy(() => import("@/views/About"));
+const Links = lazy(() => import("@/views/Links"));
+// const BlogDetail = lazy(() => import("@/views/BlogDetail"));
 const nav = [
   {
     id: 1,

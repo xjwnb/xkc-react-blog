@@ -7,9 +7,11 @@ export default function LazyLoadImg(props) {
   const loadingGIF = "@/assets/images/loading/loading.gif";
   return (
     <LazyLoad
-      // scroll={true}
-      // height={100}
-      // offset={[-100, 100]}
+    scrollContainer="body"
+      scroll={true}
+      height={300}
+      offset={-300}
+      // debounce={500}
       // height={props.height}
       placeholder={<Spinner />}
       >

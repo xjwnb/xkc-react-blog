@@ -1,16 +1,17 @@
 /*
  * @Author: your name
  * @Date: 2021-02-03 22:09:07
- * @LastEditTime: 2021-02-21 20:36:38
+ * @LastEditTime: 2021-02-25 22:48:44
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \xkc-react-blog\src\layout\index.js
  */
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, lazy, Suspense } from "react";
 import "./index.less";
 // 组件
 import { Nav } from "@/components";
 import { Avatar, TabsInfo, UserInfo, HotBlog } from "./components";
+import { Spin } from "antd";
 // const
 import { nav } from "@/const";
 // 请求
@@ -21,8 +22,8 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 // views
 import Index from "@/views/Index";
 import Comments from "@/views/Comments";
-import BlogDetail from "@/views/BlogDetail";
-import NotFound from "@/views/NotFound";
+const BlogDetail = lazy(() => import("@/views/BlogDetail"));
+const NotFound = lazy(() => import("@/views/NotFound"));
 // redux
 import { connect } from "react-redux";
 import { setUserInfo } from "@/store/actions/user";
@@ -35,6 +36,8 @@ function Layout(props) {
   const [userInfo, setUserInfo] = useState({});
   const [tabsInfo, setTabsInfo] = useState({});
   const [hotBlogInfo, setHotBlogInfo] = useState([]);
+  // 加载状态
+  const [loading, setloading] = useState(true);
 
   useEffect(async () => {
     // 取得用户数据
@@ -50,6 +53,8 @@ function Layout(props) {
     // 获取热门博客信息
     let blogInfoHot = await getHotBlogInfoData();
     setHotBlogInfo(blogInfoHot);
+    // 关闭加载
+    setloading(false);
   }, []);
 
   useEffect(() => {
@@ -161,33 +166,35 @@ function Layout(props) {
               />
             </div>
             <div className="layout-main-content-center">
-              <Switch>
-                {nav.map((route) => {
-                  return (
-                    <Route
-                      key={route.id}
-                      path={route.path}
-                      exact
-                      render={(routerProps) => {
-                        return (
-                          <route.component
-                            {...routerProps}
-                            tabsInfo={tabsInfo}
-                          />
-                        );
-                      }}
-                    ></Route>
-                  );
-                })}
-                <Route
-                  path="/xkcBlog/blogDetail/:id"
-                  exact
-                  component={BlogDetail}
-                ></Route>
-                <Route path="*">
-                  <NotFound />
-                </Route>
-              </Switch>
+              <Suspense fallback={<div>Loading...</div>}>
+                <Switch>
+                  {nav.map((route) => {
+                    return (
+                      <Route
+                        key={route.id}
+                        path={route.path}
+                        exact
+                        render={(routerProps) => {
+                          return (
+                            <route.component
+                              {...routerProps}
+                              tabsInfo={tabsInfo}
+                            />
+                          );
+                        }}
+                      ></Route>
+                    );
+                  })}
+                  <Route
+                    path="/xkcBlog/blogDetail/:id"
+                    exact
+                    component={BlogDetail}
+                  ></Route>
+                  <Route path="*">
+                    <NotFound />
+                  </Route>
+                </Switch>
+              </Suspense>
               {/* <Switch>
                     <Route path="/" exact component={Index}>
                     </Route>
