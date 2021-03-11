@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-02-03 22:09:07
- * @LastEditTime: 2021-02-25 22:48:44
+ * @LastEditTime: 2021-03-11 21:38:00
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \xkc-react-blog\src\layout\index.js
@@ -10,7 +10,7 @@ import React, { useState, useEffect, lazy, Suspense } from "react";
 import "./index.less";
 // 组件
 import { Nav } from "@/components";
-import { Avatar, TabsInfo, UserInfo, HotBlog } from "./components";
+import { Avatar, TabsInfo, UserInfo, HotBlog, SiteInfo } from "./components";
 import { Spin } from "antd";
 // const
 import { nav } from "@/const";
@@ -164,6 +164,8 @@ function Layout(props) {
                   personal_profile: userInfo.personal_profile,
                 }}
               />
+              {/* 网站信息 */}
+              <SiteInfo />
             </div>
             <div className="layout-main-content-center">
               <Suspense fallback={<div>Loading...</div>}>
