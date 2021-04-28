@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-02-03 22:09:07
- * @LastEditTime: 2021-03-11 21:38:00
+ * @LastEditTime: 2021-04-28 09:31:28
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \xkc-react-blog\src\layout\index.js
@@ -23,6 +23,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Index from "@/views/Index";
 import Comments from "@/views/Comments";
 const BlogDetail = lazy(() => import("@/views/BlogDetail"));
+const LifeDetail = lazy(() => import("@/views/LifeDetail/index.jsx"));
 const NotFound = lazy(() => import("@/views/NotFound"));
 // redux
 import { connect } from "react-redux";
@@ -187,10 +188,17 @@ function Layout(props) {
                       ></Route>
                     );
                   })}
+                  {/* 博客详情页 */}
                   <Route
                     path="/xkcBlog/blogDetail/:id"
                     exact
                     component={BlogDetail}
+                  ></Route>
+                  {/* 生活区详情页 */}
+                  <Route
+                    path="/xkcBlog/lifeDetail/:id"
+                    exact
+                    component={LifeDetail}
                   ></Route>
                   <Route path="*">
                     <NotFound />

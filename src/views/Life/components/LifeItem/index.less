@@ -20,6 +20,7 @@
     margin: 5px 0;
     .time {
       color: #c0b8b8;
+      margin-left: 10px;
     }
   }
 
@@ -30,11 +31,11 @@
     .description-img {
       width: 100%;
       height: auto;
-      transform: translateY(-30%);
+      transform: translateY(-20%);
       transition: all 0.8s;
 
       &:hover {
-        transform: scale(1.1) translateY(-30%);
+        transform: scale(1.1) translateY(-20%);
       }
     }
     img {
@@ -45,5 +46,10 @@
   .life-description-info {
     margin: 5px 0 0;
     color: #777777;
+    word-break: break-all;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; //这里写的数字是几就是超过几行剩余的显示省略号
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 }

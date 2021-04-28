@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-02-03 20:40:48
- * @LastEditTime: 2021-02-19 23:56:36
+ * @LastEditTime: 2021-04-28 22:10:16
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \xkc-react-blog\src\views\Index\index.js
@@ -54,7 +54,7 @@ function Index(props) {
       })
     }  
     <div className="pagination">
-    <Pagination defaultCurrent={1} total={props.tabsInfo.blogCount} onChange={onPagChange} />
+    <Pagination pageSize={10} defaultCurrent={1} total={props.tabsInfo.blogCount} onChange={onPagChange} />
     </div>
   </div>)
 }
