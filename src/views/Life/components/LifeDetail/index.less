@@ -1,0 +1,49 @@
+.life-detail {
+  background-color: #ffffff;
+  padding: 15px 10px;
+  transition: all 0.8s;
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  .life-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #409eff;
+    margin: 5px 0;
+    display: inline-block;
+    cursor: pointer;
+  }
+
+  .life-info {
+    margin: 5px 0;
+    .time {
+      color: #c0b8b8;
+    }
+  }
+
+  .life-description-img-container {
+    overflow: hidden;
+    height: 17rem;
+    border-radius: 5px;
+    .description-img {
+      width: 100%;
+      height: auto;
+      transform: translateY(-30%);
+      transition: all 0.8s;
+
+      &:hover {
+        transform: scale(1.1) translateY(-30%);
+      }
+    }
+    img {
+      vertical-align: middle;
+    }
+  }
+
+  .life-description-info {
+    margin: 5px 0 0;
+    color: #777777;
+  }
+}

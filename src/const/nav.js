@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-02-03 20:38:33
- * @LastEditTime: 2021-02-25 22:49:30
+ * @LastEditTime: 2021-04-27 16:45:06
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \xkc-react-blog\src\const\navigation.js
@@ -12,6 +12,7 @@ const Index = lazy(() => import("@/views/Index"));
 const TagsDetail = lazy(() => import("@/views/TagsDetail"));
 const About = lazy(() => import("@/views/About"));
 const Links = lazy(() => import("@/views/Links"));
+const Life = lazy(() => import("@/views/Life"));
 // const BlogDetail = lazy(() => import("@/views/BlogDetail"));
 const nav = [
   {
@@ -30,6 +31,13 @@ const nav = [
   },
   {
     id: 3,
+    name: "生活区",
+    path: "/xkcBlog/life",
+    component: Life,
+    meta: { title: "生活" },
+  },
+  {
+    id: 4,
     name: "友链",
     path: "/xkcBlog/links",
     component: Links,
