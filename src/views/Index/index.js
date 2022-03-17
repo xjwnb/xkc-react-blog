@@ -14,7 +14,7 @@ import { getBlogInfoByPage } from "@/api/blog";
 // 组件
 import { BlogItem } from "./components";
 // antd
-import { Pagination } from 'antd';
+import { Pagination, Skeleton } from "antd";
 import "./index.less";
 
 function Index(props) {
@@ -29,7 +29,6 @@ function Index(props) {
     try {
       let blogInfoData = await getBlogInfo();
       setBlogInfo(blogInfoData);
-      
     } catch (err) {
       console.log(err);
     }
@@ -40,25 +39,35 @@ function Index(props) {
     // console.log(pageNumber);
     let blogInfoData = await getBlogInfo(10 * (pageNumber - 1));
     setBlogInfo(blogInfoData);
-  }
+  };
 
   return (
-  <div className="index">
-    {
-      blogInfo && blogInfo.map(blog => {
-        return (
-          <div key={blog.id}>
-            <BlogItem blogInfo={blog}/>
+    <div className="index">
+      {!blogInfo.length &&
+        Array.from({ length: 10 }, () => 1).map((_) => (
+          <div className="skeleton_wrapper">
+            <Skeleton loading={true} avatar paragraph={{ rows: 6 }} />
           </div>
-        )
-      })
-    }  
-    <div className="pagination">
-    <Pagination pageSize={10} defaultCurrent={1} total={props.tabsInfo.blogCount} onChange={onPagChange} />
+        ))}
+      {blogInfo &&
+        blogInfo.map((blog) => {
+          return (
+            <div key={blog.id}>
+              <BlogItem blogInfo={blog} />
+            </div>
+          );
+        })}
+      <div className="pagination">
+        <Pagination
+          pageSize={10}
+          defaultCurrent={1}
+          total={props.tabsInfo.blogCount}
+          onChange={onPagChange}
+        />
+      </div>
     </div>
-  </div>)
+  );
 }
-
 
 // 获取博客信息
 const getBlogInfo = (offset) => {
